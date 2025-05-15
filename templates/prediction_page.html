@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection - Railway Sentry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d9534f;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .navbar .get-started {
+            background-color: #d9534f;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar .get-started:hover {
+            background-color: #c9302c;
+        }
+
+        /* Breadcrumbs styling */
+        .breadcrumbs {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .breadcrumbs a {
+            color: #777;
+            text-decoration: none;
+        }
+
+        .breadcrumbs a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content styling */
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .predict-button, .retry-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .predict-button {
+            background-color: #5cb85c;
+        }
+
+        .predict-button:hover {
+            background-color: #4cae4c;
+        }
+
+        .retry-button {
+            background-color: #5cb85c;
+            margin-top: 30px;
+        }
+
+        .retry-button:hover {
+            background-color: #4cae4c;
+        }
+
+        .result-section {
+            display: none; /* Initially hidden */
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .result-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Railway<span style="color: #333;">Sentry</span></div>
+    </div>
+
+    <div class="breadcrumbs">
+        <a href="/">Home</a> / Detection Page
+    </div>
+
+    <div class="container" id="upload-section">
+        <h1>Object Detection</h1>
+        <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+            <label for="upload">Upload Your Image:</label>
+            <input type="file" id="upload" name="r_image" required>
+            <button type="submit" class="predict-button">Predict</button>
+        </form>
+    </div>
+
+
+</body>
+</html>

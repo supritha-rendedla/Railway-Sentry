@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Railway Sentry</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar .logo {
+            font-weight: bold;
+            font-size: 24px;
+            color: #d9534f;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+        }
+
+        .navbar .get-started {
+            background-color: #d9534f;
+            color: #ffffff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+        }
+
+        .home, .about, .contact {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        /* Home Section */
+        .home .content {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .home h1 {
+            font-size: 32px;
+            color: #333;
+        }
+
+        .home p {
+            color: #666;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .home img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        /* About Section */
+        .about img {
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        .about h2 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .about p {
+            color: #666;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Contact Section */
+        .map-section {
+            width: 100%;
+            height: 400px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .contact-card {
+            flex: 1 1 300px;
+            max-width: 300px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .contact-card .icon {
+            font-size: 24px;
+            color: #d9534f;
+            margin-bottom: 10px;
+        }
+
+        .contact-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .contact-card p {
+            color: #666;
+            font-size: 16px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">Railway<span style="color: #333;">Sentry</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="{{ url_for('prediction_page') }}" class="btn btn-primary">Get Started</a>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="home">
+        <div class="content">
+            <div>
+                <h1>Driven by state-of-the-art YOLO (You Only Look Once) algorithms</h1>
+                <p>Railway Sentry embarks on a groundbreaking mission to enhance railway safety through advanced image detection technology.</p>
+            </div>
+            <img src="C:\Users\M.SHIVA KUMAR\Documents\projects\railwaysentry\static\imgs\istockphoto-181858921-1024x1024.jpg" alt="Railway Workers">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>Learn More About Us</h2>
+        <p>In the dynamic realm of railway safety, Railway Sentry sets out on a mission to revolutionize track monitoring and worker detection.</p>
+        <p>Railway Sentry aims to identify and alert the presence of workers within its range, preventing various risks.</p>
+        <p>With Railway Sentry at the helm, railway authorities and personnel can take concrete steps toward enhancing overall operational safety.</p>
+        <img src="C:\Users\M.SHIVA KUMAR\Documents\projects\railwaysentry\static\imgs\istockphoto-1269800321-612x612.jpg" alt="Railway Worker at Track">
+        <video  controls src="C:\Users\M.SHIVA KUMAR\Documents\projects\railwaysentry\static\imgs\istockphoto-1127090826-640_adpp_is.mp4"></video>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="map-section">
+            <!-- Google Maps Embed -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30452.385167345396!2d78.39905775!3d17.43333895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb916fe6787cf1%3A0x3fd8dc4f71c7c721!2sGachibowli%2C%20Hyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1635758320205!5m2!1sen!2sin"
+                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="contact-details">
+            <div class="contact-card">
+                <div class="icon">📍</div>
+                <h3>Our Address</h3>
+                <p>6th Floor, Sundaraya Vignana Kendram, Technical Block, Madhava Reddy Colony, Gachibowli, Hyderabad, Telangana - 500032</p>
+            </div>
+            <div class="contact-card">
+                <div class="icon">✉️</div>
+                <h3>Email Us</h3>
+                <p>contact@example.com</p>
+            </div>
+            <div class="contact-card">
+                <div class="icon">📞</div>
+                <h3>Call Us</h3>
+                <p>+1 555 545 8855</p>
+            </div>
+            <div class="contact-card">
+                <div class="icon">⏰</div>
+                <h3>Opening Hours</h3>
+                <p>Mon-Sat: 11AM - 2PM; Sunday: Closed</p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

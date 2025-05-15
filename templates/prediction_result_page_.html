@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Detection - Railway Sentry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        /* Navbar styling */
+        .navbar {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d9534f;
+        }
+        /* Breadcrumbs styling */
+        .breadcrumbs {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            font-size: 14px;
+            color: #777;
+        }
+        .breadcrumbs a {
+            color: #777;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+        .retry-button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .retry-button:hover {
+            background-color: #4cae4c;
+        }
+        .result-section {
+            margin-top: 30px;
+            text-align: center;
+            /* display:{% if image %} block {% else %} none {% endif %}; */
+        }
+        .result-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .visible {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">Railway<span style="color: #333;">Sentry</span></div>
+    </div>
+
+    <div class="breadcrumbs">
+        <a href="/">Home</a> / Result Page
+    </div>
+
+    <!-- Detection Result Section -->
+    <div class="container result-section {% if image %}visible{% else %}hidden{% endif %}">
+        <h1>Object Detection</h1>
+        <p>Detection Result:</p>
+        <img src="{{ image}}" alt="Detection Result" class="result-image">
+        <button class="retry-button" onclick="tryAnotherImage()">Try with another image!</button>
+    </div>
+
+    <script>
+        function tryAnotherImage() {
+            window.location.href = "{{ url_for('prediction_page') }}";
+        }
+    </script>
+</body>
+</html>
